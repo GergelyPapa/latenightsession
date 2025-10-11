@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+/* Alapok */
+html, body {
+  height: 100%;
+  background: #000;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+/* Általános tartó wrapper, használható minden section belsejéhez */
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ---------------- Hero ---------------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  /* hero mindig látható legyen fallbackként */
+  opacity: 1;
+  transform: none;
+}
+
+.animated-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(0,140,255,0.2) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(255,0,128,0.15) 0%, transparent 70%);
+  animation: pulse 8s ease-in-out infinite alternate;
+  z-index: 0;
+  filter: blur(50px);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.3); opacity: 1; }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, #000 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px rgba(0,140,255,0.6));
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 25px;
+  text-shadow: 0 0 30px rgba(0,140,255,0.4);
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 34px;
+  border: 1px solid #4a90e2;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #4a90e2;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background: #4a90e2;
+  color: #fff;
+  box-shadow: 0 0 25px #4a90e2;
+}
+
+/* ---------------- Animációk ---------------- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1.5s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.4s; }
+.delay-2 { animation-delay: 0.8s; }
+
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- Szekciók ---------------- */
+section, header, footer {
+  min-height: 100vh;
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  /* alap megjelenés, hogy ne legyen "üres" ha JS nem fut */
+  opacity: 1;
+  transform: none;
+}
+
+/* opcionális .visible animációk ha JS hozzáadja az osztályt */
+section.animate, header.animate, footer.animate {
+  opacity: 0;
+  transform: translateY(40px) scale(0.995);
+  transition: opacity 0.6s ease, transform 0.75s cubic-bezier(.2,.9,.2,1);
+}
+
+section.visible, header.visible, footer.visible {
+  opacity: 1 !important;
+  transform: translateY(0) scale(1) !important;
+}
+
+/* Smooth scroll & snap fallback */
+html { scroll-behavior: smooth; }
+
+/* ---------------- Tipográfia ---------------- */
+h2 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ---------------- About ---------------- */
+.about {
+  background: #0a0a0a;
+  width: 100%;
+}
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #ccc;
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* ---------------- Members ---------------- */
+.members {
+  background: #111;
+  width: 100%;
+}
+
+.member-grid {
+  display: grid;
+  gap: 24px;
+  width: 100%;
+  margin: 30px auto 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+  /* alap: 1 oszlop mobilon */
+  grid-template-columns: 1fr;
+}
+
+/* tablet: 2 oszlop */
+@media (min-width: 600px) {
+  .member-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+/* asztal: 4 oszlop */
+@media (min-width: 1100px) {
+  .member-grid {
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+  }
+}
+
+
+.member {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  opacity: 1;
+}
+
+.member:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.6);
+}
+
+.member img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: grayscale(100%) brightness(0.8);
+  transition: all 0.4s ease;
+  display: block;
+}
+
+.member img:hover {
+  filter: grayscale(0%) brightness(1);
+}
+
+.member h3 {
+  margin-top: 12px;
+  font-size: 1.2rem;
+}
+
+.member p {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* ---------------- Mixek ---------------- */
+.mixes {
+  background: #0b0b0b;
+  width: 100%;
+}
+
+.mix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 30px auto 0;
+  width: 100%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+/* Reszponzív iframe wrapper a megbízható megjelenésért */
+.mix {
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+}
+
+.mix iframe {
+  width: 100%;
+  height: 230px;
+  min-height: 180px;
+  border-radius: 8px;
+  display: block;
+  background: #000;
+  border: none;
+}
+
+.mix h4 {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+/* ---------------- Kapcsolat ---------------- */
+.contact {
+  background: #050510;
+  padding: 80px 20px;
+  width: 100%;
+}
+
+.socials a {
+  color: #4a90e2;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.socials a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.copy {
+  margin-top: 25px;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* ---------------- Mobil és responszív módosítások ---------------- */
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 2rem; }
+  .btn { padding: 10px 24px; font-size: 0.9rem; }
+  section { padding: 70px 15px; }
+  .member img { height: 180px; }
+  .mix iframe { height: 200px; }
+}
+
+/* Reduced motion támogatás */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}

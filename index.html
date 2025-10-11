@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Late Night Session</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+  const sections = document.querySelectorAll("section, header, footer");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  }, { threshold: 0.6 });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</head>
+<body>
+
+  <!-- Hero section -->
+  <header class="hero">
+    <div class="animated-bg"></div>
+
+    <div class="hero-content">
+      <img src="lnslogo.png" alt="Late Night Session Logo" class="logo fade-up">
+      <h1 class="fade-up delay-1">Feel the Beat of the Night</h1>
+      <a href="#about" class="btn fade-up delay-2">About Us</a>
+    </div>
+  </header>
+
+  <!-- About section -->
+  <section id="about" class="about">
+    <div class="content-wrapper">
+      <h2>About Us</h2>
+      <p>
+        Late Night Session is a DJ collective bringing the real underground vibe
+        to the best clubs. With a fusion of house, techno, and drum & bass,
+        we create a unique atmosphere where the music never stops.
+      </p>
+    </div>
+  </section>
+
+  <!-- Members section -->
+  <section id="members" class="members">
+    <div class="content-wrapper">
+      <h2>The Crew</h2>
+      <div class="member-grid">
+        <div class="member">
+          <img src="./profilePic/david.png" alt="DAHDI">
+          <h3>DAHDI</h3>
+          <p>TECHNO</p>
+        </div>
+        <div class="member">
+          <img src="./profilePic/gabor.png" alt="M4R1N3RØ">
+          <h3>M4R1N3RØ</h3>
+          <p>TECHNO</p>
+        </div>
+        <div class="member">
+          <img src="./profilePic/roli.png" alt="Dreambɘatz">
+          <h3>Dreambɘatz</h3>
+          <p>TECHNO</p>
+        </div>
+         <div class="member">
+          <img src="./profilePic/geri.png" alt="G3RG">
+          <h3>G3RG</h3>
+          <p>TECHNO</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mixes section -->
+  <section class="mixes">
+    <div class="content-wrapper">
+      <h2>Our Mixes</h2>
+      <div class="mix-grid">
+        <div class="mix">
+          <iframe src="https://www.youtube.com/embed/example1" frameborder="0" allowfullscreen></iframe>
+          <h4>Late Night Mix</h4>
+        </div>
+        <div class="mix">
+          <iframe src="https://www.youtube.com/embed/example2" frameborder="0" allowfullscreen></iframe>
+          <h4>Midnight Vibes</h4>
+        </div>
+        <div class="mix">
+          <iframe src="https://www.youtube.com/embed/example3" frameborder="0" allowfullscreen></iframe>
+          <h4>Deep Session</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer class="contact">
+    <div class="content-wrapper">
+      <h2>Contact</h2>
+      <p>Follow us on social media!</p>
+      <div class="socials">
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+        <a href="mailto:info@latenightsession.com">Email</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+      </div>
+      <p class="copy">© 2025 Late Night Session</p>
+    </div>
+  </footer>
+
+</body>
+</html>
