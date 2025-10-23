@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Late Night Session</title>
+  <title>Late Nite Session</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 
 </head>
@@ -30,14 +31,21 @@
   </nav>
 
   <!-- === HERO === -->
-  <header id="hero" class="hero">
-    <div class="animated-bg"></div>
-    <div class="hero-content">
-      <img src="lnslogo.png" alt="Late Night Session Logo" class="logo fade-up">
-      <h1 class="fade-up delay-1">Feel the Beat of the Night</h1>
-      <a href="#about" class="btn fade-up delay-2">About Us</a>
-    </div>
-  </header>
+<header id="hero" class="hero">
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="./assets/katapultmain.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-content">
+    <img src="./assets/lnslogo.svg" alt="Late Night Session Logo" class="logo rotating">>
+    <h1 class="fade-up delay-1">Feel the Beat of the Night</h1>
+    <a href="#about" class="btn fade-up delay-2">About Us</a>
+  </div>
+</header>
+
+
+
+
 
   <!-- === ABOUT === -->
   <section id="about" class="about">
@@ -102,18 +110,29 @@
   </section>
 
   <!-- === CONTACT / FOOTER === -->
-  <footer id="contact" class="contact">
-    <div class="content-wrapper">
-      <h2>Contact</h2>
-      <p>Follow us on social media!</p>
-      <div class="socials">
-        <a href="https://instagram.com" target="_blank">Instagram</a>
-        <a href="mailto:info@latenightsession.com">Email</a>
-        <a href="https://tiktok.com" target="_blank">TikTok</a>
-      </div>
-      <p class="copy">© 2025 Late Night Session</p>
+ <footer id="contact" class="contact">
+  <div class="content-wrapper">
+    <h2>Contact</h2>
+    <p>Follow us on social media!</p>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/late_nite_session/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:info@latenightsession.com" aria-label="Email">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61566807203905" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://tiktok.com" target="_blank" aria-label="TikTok">
+        <i class="fab fa-tiktok"></i>
+      </a>
     </div>
-  </footer>
+
+    <p class="copy">© 2025 Late Night Session</p>
+  </div>
+</footer>
 
   <!-- === NAVBAR SCRIPT === -->
   <script>
