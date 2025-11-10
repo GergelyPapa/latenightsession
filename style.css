@@ -13,7 +13,6 @@ html, body {
   height: 100%;
   width: 100%;
   overflow:auto;
-  background: #000;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
@@ -105,7 +104,7 @@ html, body {
               radial-gradient(circle at 80% 80%, rgba(255,0,128,0.15) 0%, transparent 70%);
   animation: pulse 8s ease-in-out infinite alternate;
   z-index: 0;
-  filter: blur(50px);
+  filter: blur(10px);
 }
 
 @keyframes pulse {
